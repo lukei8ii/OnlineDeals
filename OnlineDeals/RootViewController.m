@@ -7,12 +7,38 @@
 //
 
 #import "RootViewController.h"
+#import "RSSEntry.h"
 
 @implementation RootViewController
+@synthesize allEntries = _allEntries;
+
+- (void)addRows
+{
+    RSSEntry *entry1 = [[[RSSEntry alloc] initWithBlogTitle:@"1"
+                                               articleTitle:@"1"
+                                                 articleUrl:@"1"
+                                                articleDate:[NSDate date]] autorelease];
+    RSSEntry *entry2 = [[[RSSEntry alloc] initWithBlogTitle:@"2"
+                                               articleTitle:@"2"
+                                                 articleUrl:@"2"
+                                                articleDate:[NSDate date]] autorelease];
+    RSSEntry *entry3 = [[[RSSEntry alloc] initWithBlogTitle:@"3"
+                                               articleTitle:@"3"
+                                                 articleUrl:@"3"
+                                                articleDate:[NSDate date]] autorelease];
+    
+    [_allEntries insertObject:entry1 atIndex:0];
+    [_allEntries insertObject:entry2 atIndex:0];
+    [_allEntries insertObject:entry3 atIndex:0];
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.title = @"Feeds";
+    self.allEntries = [NSMutableArray array];
+    [self addRows];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -51,7 +77,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return [_allEntries count];
 }
 
 // Customize the appearance of table view cells.
@@ -61,10 +87,19 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
 
-    // Configure the cell.
+    RSSEntry *entry = [_allEntries objectAtIndex:indexPath.row];
+    
+    NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+    [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    NSString *articleDateString = [dateFormatter stringFromDate:entry.articleDate];
+
+    cell.textLabel.text = entry.articleTitle;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - %@", articleDateString, entry.blogTitle];
+    
     return cell;
 }
 
@@ -138,6 +173,9 @@
 
 - (void)dealloc
 {
+    [_allEntries release];
+    _allEntries = nil;
+    
     [super dealloc];
 }
 

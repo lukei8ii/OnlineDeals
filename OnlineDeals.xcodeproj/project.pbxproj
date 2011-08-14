@@ -1,0 +1,458 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		590C858013F74D8800FA7B61 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 590C857F13F74D8800FA7B61 /* UIKit.framework */; };
+		590C858213F74D8800FA7B61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 590C858113F74D8800FA7B61 /* Foundation.framework */; };
+		590C858413F74D8800FA7B61 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 590C858313F74D8800FA7B61 /* CoreGraphics.framework */; };
+		590C858A13F74D8800FA7B61 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 590C858813F74D8800FA7B61 /* InfoPlist.strings */; };
+		590C858D13F74D8800FA7B61 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 590C858C13F74D8800FA7B61 /* main.m */; };
+		590C859013F74D8800FA7B61 /* OnlineDealsAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 590C858F13F74D8800FA7B61 /* OnlineDealsAppDelegate.m */; };
+		590C859313F74D8800FA7B61 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 590C859113F74D8800FA7B61 /* MainWindow.xib */; };
+		590C859613F74D8800FA7B61 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 590C859513F74D8800FA7B61 /* RootViewController.m */; };
+		590C859913F74D8800FA7B61 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 590C859713F74D8800FA7B61 /* RootViewController.xib */; };
+		590C85A013F74D8900FA7B61 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 590C857F13F74D8800FA7B61 /* UIKit.framework */; };
+		590C85A113F74D8900FA7B61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 590C858113F74D8800FA7B61 /* Foundation.framework */; };
+		590C85A213F74D8900FA7B61 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 590C858313F74D8800FA7B61 /* CoreGraphics.framework */; };
+		590C85AA13F74D8900FA7B61 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 590C85A813F74D8900FA7B61 /* InfoPlist.strings */; };
+		590C85AD13F74D8900FA7B61 /* OnlineDealsTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 590C85AC13F74D8900FA7B61 /* OnlineDealsTests.h */; };
+		590C85AF13F74D8900FA7B61 /* OnlineDealsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 590C85AE13F74D8900FA7B61 /* OnlineDealsTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		590C85A313F74D8900FA7B61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 590C857213F74D8800FA7B61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 590C857A13F74D8800FA7B61;
+			remoteInfo = OnlineDeals;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		590C857B13F74D8800FA7B61 /* OnlineDeals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlineDeals.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		590C857F13F74D8800FA7B61 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		590C858113F74D8800FA7B61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		590C858313F74D8800FA7B61 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		590C858713F74D8800FA7B61 /* OnlineDeals-Info.plist */ = {isa = PBXFileReference; path = "OnlineDeals-Info.plist"; sourceTree = "<group>"; };
+		590C858913F74D8800FA7B61 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		590C858B13F74D8800FA7B61 /* OnlineDeals-Prefix.pch */ = {isa = PBXFileReference; path = "OnlineDeals-Prefix.pch"; sourceTree = "<group>"; };
+		590C858C13F74D8800FA7B61 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		590C858E13F74D8800FA7B61 /* OnlineDealsAppDelegate.h */ = {isa = PBXFileReference; path = OnlineDealsAppDelegate.h; sourceTree = "<group>"; };
+		590C858F13F74D8800FA7B61 /* OnlineDealsAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnlineDealsAppDelegate.m; sourceTree = "<group>"; };
+		590C859213F74D8800FA7B61 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		590C859413F74D8800FA7B61 /* RootViewController.h */ = {isa = PBXFileReference; path = RootViewController.h; sourceTree = "<group>"; };
+		590C859513F74D8800FA7B61 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		590C859813F74D8800FA7B61 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
+		590C859F13F74D8900FA7B61 /* OnlineDealsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnlineDealsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		590C85A713F74D8900FA7B61 /* OnlineDealsTests-Info.plist */ = {isa = PBXFileReference; path = "OnlineDealsTests-Info.plist"; sourceTree = "<group>"; };
+		590C85A913F74D8900FA7B61 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		590C85AB13F74D8900FA7B61 /* OnlineDealsTests-Prefix.pch */ = {isa = PBXFileReference; path = "OnlineDealsTests-Prefix.pch"; sourceTree = "<group>"; };
+		590C85AC13F74D8900FA7B61 /* OnlineDealsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnlineDealsTests.h; sourceTree = "<group>"; };
+		590C85AE13F74D8900FA7B61 /* OnlineDealsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnlineDealsTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		590C857813F74D8800FA7B61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				590C858013F74D8800FA7B61 /* UIKit.framework in Frameworks */,
+				590C858213F74D8800FA7B61 /* Foundation.framework in Frameworks */,
+				590C858413F74D8800FA7B61 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		590C859B13F74D8900FA7B61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				590C85A013F74D8900FA7B61 /* UIKit.framework in Frameworks */,
+				590C85A113F74D8900FA7B61 /* Foundation.framework in Frameworks */,
+				590C85A213F74D8900FA7B61 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		590C857013F74D8800FA7B61 = {
+			isa = PBXGroup;
+			children = (
+				590C858513F74D8800FA7B61 /* OnlineDeals */,
+				590C85A513F74D8900FA7B61 /* OnlineDealsTests */,
+				590C857E13F74D8800FA7B61 /* Frameworks */,
+				590C857C13F74D8800FA7B61 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		590C857C13F74D8800FA7B61 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				590C857B13F74D8800FA7B61 /* OnlineDeals.app */,
+				590C859F13F74D8900FA7B61 /* OnlineDealsTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		590C857E13F74D8800FA7B61 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				590C857F13F74D8800FA7B61 /* UIKit.framework */,
+				590C858113F74D8800FA7B61 /* Foundation.framework */,
+				590C858313F74D8800FA7B61 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		590C858513F74D8800FA7B61 /* OnlineDeals */ = {
+			isa = PBXGroup;
+			children = (
+				590C858E13F74D8800FA7B61 /* OnlineDealsAppDelegate.h */,
+				590C858F13F74D8800FA7B61 /* OnlineDealsAppDelegate.m */,
+				590C859113F74D8800FA7B61 /* MainWindow.xib */,
+				590C859413F74D8800FA7B61 /* RootViewController.h */,
+				590C859513F74D8800FA7B61 /* RootViewController.m */,
+				590C859713F74D8800FA7B61 /* RootViewController.xib */,
+				590C858613F74D8800FA7B61 /* Supporting Files */,
+			);
+			path = OnlineDeals;
+			sourceTree = "<group>";
+		};
+		590C858613F74D8800FA7B61 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				590C858713F74D8800FA7B61 /* OnlineDeals-Info.plist */,
+				590C858813F74D8800FA7B61 /* InfoPlist.strings */,
+				590C858B13F74D8800FA7B61 /* OnlineDeals-Prefix.pch */,
+				590C858C13F74D8800FA7B61 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		590C85A513F74D8900FA7B61 /* OnlineDealsTests */ = {
+			isa = PBXGroup;
+			children = (
+				590C85AC13F74D8900FA7B61 /* OnlineDealsTests.h */,
+				590C85AE13F74D8900FA7B61 /* OnlineDealsTests.m */,
+				590C85A613F74D8900FA7B61 /* Supporting Files */,
+			);
+			path = OnlineDealsTests;
+			sourceTree = "<group>";
+		};
+		590C85A613F74D8900FA7B61 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				590C85A713F74D8900FA7B61 /* OnlineDealsTests-Info.plist */,
+				590C85A813F74D8900FA7B61 /* InfoPlist.strings */,
+				590C85AB13F74D8900FA7B61 /* OnlineDealsTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		590C857A13F74D8800FA7B61 /* OnlineDeals */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 590C85B213F74D8900FA7B61 /* Build configuration list for PBXNativeTarget "OnlineDeals" */;
+			buildPhases = (
+				590C857713F74D8800FA7B61 /* Sources */,
+				590C857813F74D8800FA7B61 /* Frameworks */,
+				590C857913F74D8800FA7B61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OnlineDeals;
+			productName = OnlineDeals;
+			productReference = 590C857B13F74D8800FA7B61 /* OnlineDeals.app */;
+			productType = "com.apple.product-type.application";
+		};
+		590C859E13F74D8900FA7B61 /* OnlineDealsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 590C85B513F74D8900FA7B61 /* Build configuration list for PBXNativeTarget "OnlineDealsTests" */;
+			buildPhases = (
+				590C859A13F74D8900FA7B61 /* Sources */,
+				590C859B13F74D8900FA7B61 /* Frameworks */,
+				590C859C13F74D8900FA7B61 /* Resources */,
+				590C859D13F74D8900FA7B61 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				590C85A413F74D8900FA7B61 /* PBXTargetDependency */,
+			);
+			name = OnlineDealsTests;
+			productName = OnlineDealsTests;
+			productReference = 590C859F13F74D8900FA7B61 /* OnlineDealsTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		590C857213F74D8800FA7B61 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 590C857513F74D8800FA7B61 /* Build configuration list for PBXProject "OnlineDeals" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 590C857013F74D8800FA7B61;
+			productRefGroup = 590C857C13F74D8800FA7B61 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				590C857A13F74D8800FA7B61 /* OnlineDeals */,
+				590C859E13F74D8900FA7B61 /* OnlineDealsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		590C857913F74D8800FA7B61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				590C858A13F74D8800FA7B61 /* InfoPlist.strings in Resources */,
+				590C859313F74D8800FA7B61 /* MainWindow.xib in Resources */,
+				590C859913F74D8800FA7B61 /* RootViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		590C859C13F74D8900FA7B61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				590C85AA13F74D8900FA7B61 /* InfoPlist.strings in Resources */,
+				590C85AD13F74D8900FA7B61 /* OnlineDealsTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		590C859D13F74D8900FA7B61 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		590C857713F74D8800FA7B61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				590C858D13F74D8800FA7B61 /* main.m in Sources */,
+				590C859013F74D8800FA7B61 /* OnlineDealsAppDelegate.m in Sources */,
+				590C859613F74D8800FA7B61 /* RootViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		590C859A13F74D8900FA7B61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				590C85AF13F74D8900FA7B61 /* OnlineDealsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		590C85A413F74D8900FA7B61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 590C857A13F74D8800FA7B61 /* OnlineDeals */;
+			targetProxy = 590C85A313F74D8900FA7B61 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		590C858813F74D8800FA7B61 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				590C858913F74D8800FA7B61 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		590C859113F74D8800FA7B61 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				590C859213F74D8800FA7B61 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		590C859713F74D8800FA7B61 /* RootViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				590C859813F74D8800FA7B61 /* en */,
+			);
+			name = RootViewController.xib;
+			sourceTree = "<group>";
+		};
+		590C85A813F74D8900FA7B61 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				590C85A913F74D8900FA7B61 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		590C85B013F74D8900FA7B61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		590C85B113F74D8900FA7B61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		590C85B313F74D8900FA7B61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OnlineDeals/OnlineDeals-Prefix.pch";
+				INFOPLIST_FILE = "OnlineDeals/OnlineDeals-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		590C85B413F74D8900FA7B61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OnlineDeals/OnlineDeals-Prefix.pch";
+				INFOPLIST_FILE = "OnlineDeals/OnlineDeals-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		590C85B613F74D8900FA7B61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OnlineDeals.app/OnlineDeals";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OnlineDealsTests/OnlineDealsTests-Prefix.pch";
+				INFOPLIST_FILE = "OnlineDealsTests/OnlineDealsTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		590C85B713F74D8900FA7B61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OnlineDeals.app/OnlineDeals";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OnlineDealsTests/OnlineDealsTests-Prefix.pch";
+				INFOPLIST_FILE = "OnlineDealsTests/OnlineDealsTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		590C857513F74D8800FA7B61 /* Build configuration list for PBXProject "OnlineDeals" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				590C85B013F74D8900FA7B61 /* Debug */,
+				590C85B113F74D8900FA7B61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		590C85B213F74D8900FA7B61 /* Build configuration list for PBXNativeTarget "OnlineDeals" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				590C85B313F74D8900FA7B61 /* Debug */,
+				590C85B413F74D8900FA7B61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		590C85B513F74D8900FA7B61 /* Build configuration list for PBXNativeTarget "OnlineDealsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				590C85B613F74D8900FA7B61 /* Debug */,
+				590C85B713F74D8900FA7B61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 590C857213F74D8800FA7B61 /* Project object */;
+}

@@ -21,6 +21,6 @@
 @property (copy) NSString *articleUrl;
 @property (copy) NSDate   *articleDate;
 
-- (id)initWithBlogTitle:(NSString*)blogTitle articleTitle:(NSString*)articleTitle articleUrl:(NSString*)articleUrl articleDate:(NSDate*)articleDate;
+- (id)initWithBlogTitle:(NSString *)blogTitle articleTitle:(NSString *)articleTitle articleUrl:(NSString *)articleUrl articleDate:(NSDate *)articleDate;
 
 @end

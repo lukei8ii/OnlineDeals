@@ -8,37 +8,143 @@
 
 #import "RootViewController.h"
 #import "RSSEntry.h"
+#import "ASIHTTPRequest.h"
+#import "NSDate+InternetDateTime.h"
+#import "NSArray+Extras.h"
+#import "WebViewController.h"
 
 @implementation RootViewController
 @synthesize allEntries = _allEntries;
+@synthesize feeds = _feeds;
+@synthesize queue = _queue;
+@synthesize webViewController = _webViewController;
 
-- (void)addRows
+- (void)refresh
 {
-    RSSEntry *entry1 = [[[RSSEntry alloc] initWithBlogTitle:@"1"
-                                               articleTitle:@"1"
-                                                 articleUrl:@"1"
-                                                articleDate:[NSDate date]] autorelease];
-    RSSEntry *entry2 = [[[RSSEntry alloc] initWithBlogTitle:@"2"
-                                               articleTitle:@"2"
-                                                 articleUrl:@"2"
-                                                articleDate:[NSDate date]] autorelease];
-    RSSEntry *entry3 = [[[RSSEntry alloc] initWithBlogTitle:@"3"
-                                               articleTitle:@"3"
-                                                 articleUrl:@"3"
-                                                articleDate:[NSDate date]] autorelease];
+    for (NSString *feed in _feeds)
+    {
+        NSURL *url = [NSURL URLWithString:feed];
+        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+        [request setDelegate:self];
+        [_queue addOperation:request];
+    }
+}
+
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+    [_queue addOperationWithBlock:^{
+        NSError *error;
+        GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithData:[request responseData]
+                                                               options:0 error:&error];
+        
+        if (doc == nil) {
+            NSLog(@"Failed to parse %@", request.url);
+        } else {
+            NSMutableArray *entries = [NSMutableArray array];
+            [self parseFeed:doc.rootElement entries: entries];
+            
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                for (RSSEntry *entry in entries) {
+                    int insertIdx = [_allEntries indexForInsertingObject:entry sortedUsingBlock:^(id a, id b) {
+                        RSSEntry *entry1 = (RSSEntry *) a;
+                        RSSEntry *entry2 = (RSSEntry *) b;
+                        return [entry1.articleDate compare:entry2.articleDate];
+                    }];
+                                     
+                    [_allEntries insertObject:entry atIndex:insertIdx];
+                    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:insertIdx inSection:0]] withRowAnimation:UITableViewRowAnimationRight];
+                }
+            }];
+        }
+    }];
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+    NSError *error = [request error];
+    NSLog(@"Error: %@", error);
+}
+
+- (void)parseFeed:(GDataXMLElement *)rootElement entries:(NSMutableArray *)entries
+{
+    if ([rootElement.name compare:@"rss"] == NSOrderedSame) {
+        [self parseRss:rootElement entries:entries];
+    } else if ([rootElement.name compare:@"feed"] == NSOrderedSame) {
+        [self parseAtom:rootElement entries:entries];
+    } else {
+        NSLog(@"Unsupported root element: %@", rootElement.name);
+    }
+}
+
+- (void)parseRss:(GDataXMLElement *)rootElement entries:(NSMutableArray *)entries
+{
+    NSArray *channels = [rootElement elementsForName:@"channel"];
+    for (GDataXMLElement *channel in channels)
+    {
+        NSString *blogTitle = [channel valueForChild:@"title"];
+        
+        NSArray *items = [channel elementsForName:@"item"];
+        for (GDataXMLElement *item in items)
+        {
+            NSString *articleTitle = [item valueForChild:@"title"];
+            NSString *articleUrl = [item valueForChild:@"link"];
+            NSString *articleDateString = [item valueForChild:@"pubDate"];
+            NSDate *articleDate = [NSDate dateFromInternetDateTimeString:articleDateString formatHint:DateFormatHintRFC822];
+            
+            RSSEntry *entry = [[[RSSEntry alloc] initWithBlogTitle:blogTitle
+                                                      articleTitle:articleTitle
+                                                        articleUrl:articleUrl
+                                                       articleDate:articleDate] autorelease];
+            [entries addObject:entry];
+        }
+    }
+}
+
+- (void)parseAtom:(GDataXMLElement *)rootElement entries:(NSMutableArray *)entries
+{
+    NSString *blogTitle = [rootElement valueForChild:@"title"];
     
-    [_allEntries insertObject:entry1 atIndex:0];
-    [_allEntries insertObject:entry2 atIndex:0];
-    [_allEntries insertObject:entry3 atIndex:0];
+    NSArray *items = [rootElement elementsForName:@"entry"];
+    for (GDataXMLElement *item in items)
+    {
+        NSString *articleTitle = [item valueForChild:@"title"];
+        NSString *articleUrl = nil;
+        NSArray *links = [item elementsForName:@"link"];
+        for (GDataXMLElement *link in links)
+        {
+            NSString *rel = [[link attributeForName:@"rel"] stringValue];
+            NSString *type = [[link attributeForName:@"type"] stringValue];
+            if ([rel compare:@"alternate"] == NSOrderedSame &&
+                [type compare:@"text/html"] == NSOrderedSame) {
+                articleUrl = [[link attributeForName:@"href"] stringValue];
+            }
+        }
+        
+        NSString *articleDateString = [item valueForChild:@"updated"];
+        NSDate *articleDate = [NSDate dateFromInternetDateTimeString:articleDateString formatHint:DateFormatHintRFC3339];
+        
+        RSSEntry *entry = [[[RSSEntry alloc] initWithBlogTitle:blogTitle
+                                                  articleTitle:articleTitle
+                                                    articleUrl:articleUrl
+                                                   articleDate:articleDate] autorelease];
+        [entries addObject:entry];
+    }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.title = @"Feeds";
+    self.title = @"Deals";
     self.allEntries = [NSMutableArray array];
-    [self addRows];
+    self.queue = [[[NSOperationQueue alloc] init] autorelease];
+    self.feeds = [NSArray arrayWithObjects:@"http://api.woot.com/1/sales/current.rss/www.woot.com",
+                  @"http://api.woot.com/1/sales/current.rss/shirt.woot.com",
+                  @"http://api.woot.com/1/sales/current.rss/sellout.woot.com",
+                  @"http://api.woot.com/1/sales/current.rss/wine.woot.com",
+                  @"http://api.woot.com/1/sales/current.rss/kids.woot.com",
+                  nil];
+    [self refresh];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -146,6 +252,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (_webViewController == nil) {
+        self.webViewController = [[[WebViewController alloc] initWithNibName:@"WebViewController" bundle:[NSBundle mainBundle]] autorelease];
+    }
+    RSSEntry *entry = [_allEntries objectAtIndex:indexPath.row];
+    _webViewController.entry = entry;
+    [self.navigationController pushViewController:_webViewController animated:YES];
+    
     /*
     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
     // ...
@@ -157,6 +270,8 @@
 
 - (void)didReceiveMemoryWarning
 {
+    self.webViewController = nil;
+    
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
     
@@ -175,6 +290,8 @@
 {
     [_allEntries release];
     _allEntries = nil;
+    [_webViewController release];
+    _webViewController = nil;
     
     [super dealloc];
 }

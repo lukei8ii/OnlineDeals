@@ -15,7 +15,7 @@
 @synthesize articleUrl = _articleUrl;
 @synthesize articleDate = _articleDate;
 
-- (id)initWithBlogTitle:(NSString*)blogTitle articleTitle:(NSString*)articleTitle articleUrl:(NSString*)articleUrl articleDate:(NSDate*)articleDate
+- (id)initWithBlogTitle:(NSString*)blogTitle articleTitle:(NSString *)articleTitle articleUrl:(NSString *)articleUrl articleDate:(NSDate *)articleDate
 {
     if ((self = [super init]))
     {
